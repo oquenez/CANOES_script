@@ -6,6 +6,15 @@ Follow the tutorial describe on the CANOES web page for the generation of the pr
 
 Main scripts are:
 
+	defineTarget.sh
+	description :
+		merge targets with less than 30bp
+	input :
+		your captureKit target definition, in bed format
+	output :
+		extended catureKit in bed Format
+
+
 	
 	cleanCANOESentries.pl 
 	description : 
