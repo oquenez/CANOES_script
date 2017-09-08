@@ -6,12 +6,14 @@ use constant false => 0;
 use constant true  => 1;
 
 my $sampleFile;
+my $output;
 GetOptions(
-	"sample=s"     => \$sampleFile
+	"sample=s" => \$sampleFile,
+	"output=s" => \$output
 );
 
 open(SAMPLE,"<$sampleFile") or die ("can't open sample file $sampleFile\n");
-
+open(OUTFILE,">$output") or dir ("can't open output file $output\n");
 my $firstFile = true;
 my @outArray;
 
@@ -35,7 +37,11 @@ while (<SAMPLE>){
 			$lNb++;
 		}
 	}
+	close(FILE);
 }
 for my $line (@outArray){
-	print join("\t",@$line),"\n";
+	print OUTFILE join("\t",@$line),"\n";
 }
+
+close(SAMPLE);
+close(OUTFILE);
