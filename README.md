@@ -42,4 +42,49 @@ Main scripts are:
 	output : 
 		generate both readCount file and gc file. ($prefix.gc.txt and $prefix.reads.txt)
 		
-        ************************************************************************
+	************************************************************************
+
+	run_CANOES.R
+	description :
+		main script used to call CNV with CANOES, used for a complete batch
+	command :
+		Rscript run_CANOES.R CANOES.R $prefix.gc.txt $prefix.reads.txt sample.list outName
+	input :
+		the official Rlib CANOES.R
+		the gcCount
+		the readCount
+		the sampleList (1 per line)
+		an prefix for the output
+	output :
+		a csv file containing all the cnv detected, the file name is $outName.cnv.csv
+
+	************************************************************************
+
+	run_monoCANOES.R
+	description : 
+		variation from main script, used to call on one sample only (useful for splitting process)
+	command :
+		Rscript run_monoCANOES.R CANOES.R $prefix.gc.txt $prefix.reads.txt sample.list sampleId
+	input :
+		the official Rlib CANOES.R
+                the gcCount
+                the readCount
+                the sampleList (1 per line)
+                the sample to analyse
+	
+	output :
+		csv file named sampleId.cnv.csv containing all the cnv detected
+
+	************************************************************************
+
+	extratToBedFormat.sh
+	description :
+		bash script used to convert from csv to bed format
+	command :
+		./extractToBedFormat.sh cnv.csv > cnv.bed
+	input :
+		direct output from R script
+	output :
+		a converted bed file
+	
+	************************************************************************
