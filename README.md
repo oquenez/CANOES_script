@@ -16,7 +16,7 @@ Main scripts are:
 	output :
 		extended catureKit in bed Format
 
-	************************************************************************
+	***
 
 	compilSample.pl
 	description :
@@ -28,7 +28,7 @@ Main scripts are:
 	output:
 		readCount File with all the sample. 
 
-	************************************************************************
+	***
 
 	cleanCANOESentries.pl 
 	description : 
@@ -42,7 +42,7 @@ Main scripts are:
 	output : 
 		generate both readCount file and gc file. ($prefix.gc.txt and $prefix.reads.txt)
 		
-	************************************************************************
+	***
 
 	run_CANOES.R
 	description :
@@ -58,7 +58,7 @@ Main scripts are:
 	output :
 		a csv file containing all the cnv detected, the file name is $outName.cnv.csv
 
-	************************************************************************
+	***
 
 	run_monoCANOES.R
 	description : 
@@ -75,7 +75,7 @@ Main scripts are:
 	output :
 		csv file named sampleId.cnv.csv containing all the cnv detected
 
-	************************************************************************
+	***
 
 	extratToBedFormat.sh
 	description :
@@ -87,4 +87,4 @@ Main scripts are:
 	output :
 		a converted bed file
 	
-	************************************************************************
+	***

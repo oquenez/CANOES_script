@@ -1,4 +1,5 @@
 #!/bin/bash
+echo -e "#CHROM\tSTART\tEND\tSAMPLE\tTYPE\tSIZE(KB)\tNB TARGET\tCNE\tSCORE"
 while read line; 
 do IFS=';' read -ra ADDR <<< "$line"; 
 	echo -e "${ADDR[3]}\t${ADDR[1]}\t${ADDR[2]}\t${ADDR[4]}\t${ADDR[8]}\t${ADDR[9]}\t${ADDR[10]}"; 
