@@ -29,6 +29,7 @@ while(my $line = <READSFILE>){
 	my $keep = true;
 	chomp($line);
 	my @lines = split("\t",$line);
+	$lines[0] =~ s/^chr//g; 
 	my $count=0;
 	for (my $i=2;$i<scalar(@lines);$i++){
 		if($lines[$i]<=10){
@@ -43,11 +44,17 @@ while(my $line = <READSFILE>){
 		push(@{$chr{$lines[0]}},[@lines]);
 	}else{
 		my $newStart=$lines[1]+1;
-		my $pos="$lines[0]:$newStart-$lines[2]";
+		my $pos;
+		if($newStart eq $lines[2]){
+			$pos="$lines[0]:$newStart"
+		}else{
+			$pos="$lines[0]:$newStart-$lines[2]";
+		}
 		$remove{$pos}=1;
 	}
 }
 while (my $line = <GCFILE>){
+	$line =~ s/^chr//g;
 	my @lines = split("\t",$line);
 	if (!exists($remove{$lines[0]})){
 		if(($lines[0] !~ /^X/) && ($lines[0] !~ /^Y/)){
